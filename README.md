@@ -18,7 +18,7 @@ Curriculum interactivo desarrollado con HTML, CSS y JavaScript.
 
 ## Uso
 
-Visualizar en:
+Visualizar en: https://migiva-dev.github.io/Personal-cv/
 
 ## Autor
 
