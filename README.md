@@ -12,7 +12,7 @@ Curriculum interactivo desarrollado con HTML, CSS y JavaScript.
 ## Tecnologías
 
 - HTML5
-- CSS
+- CSS3
 
 ## Uso
 
