@@ -1,11 +1,438 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV Miguel Gavilá Ibáñez</title>
+  <style>
+    :root{
+      --sage:#9fb6b4;
+      --sage-soft:#bdd0ce;
+      --ink:#121416;
+      --paper:#f7f7f5;
+      --text:#262a2c;
+      --muted:#6f8f8d;
+      --white:#ffffff;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      background:#dde4e3;
+      font-family: Arial, Helvetica, sans-serif;
+      color:var(--text);
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      padding:24px;
+    }
+
+    .cv{
+      width:100%;
+      max-width:1024px;
+      min-height:1448px;
+      background:var(--paper);
+      display:grid;
+      grid-template-columns:36% 64%;
+      box-shadow:0 30px 60px rgba(0,0,0,.18);
+      overflow:hidden;
+    }
+
+    .sidebar{
+      background:var(--ink);
+      position:relative;
+      padding-bottom:44px;
+    }
+
+    .photo-wrap{
+      height:372px;
+      background:#7f9f9e;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .photo-wrap img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center 18%;
+      display:block;
+      filter:saturate(1.02) contrast(1.02);
+    }
+
+    .sidebar-content{
+      padding:58px 52px 30px;
+      color:#f2f2f0;
+    }
+
+    .section{
+      margin-bottom:48px;
+    }
+
+    .section-title,
+    .main-title{
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      letter-spacing:.5px;
+      line-height:.95;
+      text-transform:uppercase;
+      display:inline-block;
+      position:relative;
+      z-index:1;
+    }
+
+    .section-title{
+      font-size:42px;
+      color:#f4f4f4;
+      margin:0 0 22px;
+    }
+
+    .main-title{
+      font-size:44px;
+      color:#22373b;
+      margin:0 0 26px;
+    }
+
+    .section-title::after,
+    .main-title::after{
+      content:"";
+      position:absolute;
+      left:-8px;
+      right:-10px;
+      bottom:4px;
+      height:18px;
+      background:var(--sage-soft);
+      z-index:-1;
+      opacity:.95;
+    }
+
+    .contact-item{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      margin:0 0 18px;
+      font-size:18px;
+      line-height:1.35;
+    }
+
+    .icon{
+      width:34px;
+      min-width:34px;
+      height:34px;
+      border-radius:50%;
+      border:2px solid rgba(255,255,255,.9);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:16px;
+      margin-top:2px;
+    }
+
+    .sidebar p{
+      margin:0 0 18px;
+      font-size:19px;
+      line-height:1.28;
+    }
+
+    .lang-row{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      margin:0 0 18px;
+      font-size:20px;
+      line-height:1.2;
+    }
+
+    .lang-row strong{
+      font-weight:700;
+    }
+
+    .main{
+      background:var(--paper);
+    }
+
+    .hero{
+      background:var(--sage);
+      min-height:242px;
+      padding:34px 42px;
+      display:flex;
+      align-items:flex-start;
+    }
+
+    .hero h1{
+      margin:0;
+      color:#f6f7f5;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size:86px;
+      letter-spacing:2px;
+      line-height:.92;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+
+    .main-content{
+      padding:36px 40px 44px;
+    }
+
+    .block{
+      margin-bottom:52px;
+    }
+
+    .job{
+      margin-bottom:32px;
+    }
+
+    .job:last-child{
+      margin-bottom:0;
+    }
+
+    .accent{
+      color:var(--muted);
+      font-size:26px;
+      font-weight:300;
+    }
+
+    .date-inline{
+      color:#222;
+      font-size:22px;
+      margin-left:6px;
+    }
+
+    .company{
+      font-size:22px;
+      margin:10px 0 10px;
+      color:#1f2325;
+    }
+
+    ul{
+      margin:6px 0 0 18px;
+      padding:0 0 0 14px;
+    }
+
+    li{
+      font-size:19px;
+      line-height:1.42;
+      margin-bottom:6px;
+    }
+
+    .study-grid{
+      display:grid;
+      grid-template-columns:120px 1fr;
+      gap:20px 22px;
+      align-items:start;
+    }
+
+    .year{
+      color:var(--muted);
+      font-size:20px;
+      text-align:right;
+      line-height:1.2;
+      padding-top:2px;
+    }
+
+    .study-text{
+      font-size:19px;
+      line-height:1.32;
+    }
+
+    .skill-text{
+      font-size:19px;
+      line-height:1.38;
+      margin:0 0 26px;
+    }
+
+    .print-note{
+      position:fixed;
+      bottom:10px;
+      right:12px;
+      font-size:12px;
+      color:#5d6d6d;
+      background:rgba(255,255,255,.7);
+      padding:4px 8px;
+      border-radius:999px;
+      backdrop-filter:blur(4px);
+    }
+
+    @media print{
+      body{
+        background:white;
+        padding:0;
+      }
+
+      .cv{
+        box-shadow:none;
+        max-width:none;
+      }
+
+      .print-note{
+        display:none;
+      }
+
+      @page{
+        size:A4;
+        margin:0;
+      }
+    }
+
+    @media (max-width: 900px){
+      body{
+        padding:0;
+      }
+
+      .cv{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:64px;
+      }
+
+      .photo-wrap{
+        height:460px;
+      }
+
+      .study-grid{
+        grid-template-columns:1fr;
+      }
+
+      .year{
+        text-align:left;
+      }
+    }
+  </style>
 </head>
 <body>
-    
+  <article class="cv">
+    <aside class="sidebar">
+      <div class="photo-wrap">
+        <!-- CAMBIA ESTA RUTA POR EL NOMBRE DE TU FOTO -->
+        <img src="img_cv.png" alt="Foto de Miguel Gavilá Ibáñez" />
+      </div>
+
+      <div class="sidebar-content">
+        <section class="section">
+          <h2 class="section-title">Contacto</h2>
+          <div class="contact-item">
+            <span class="icon">@</span>
+            <span>miguelgavilaibanez@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <span class="icon">☎</span>
+            <span>(+34) 648 437 773</span>
+          </div>
+          <div class="contact-item">
+            <span class="icon">⌘</span>
+            <span>Av/Magdalena, 101 22<br>Rafelbuñol</span>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Sobre mí</h2>
+          <p>
+            Me considero una persona con una gran constancia para lograr mis
+            objetivos, así como un gran sentido de la responsabilidad.
+          </p>
+          <p>
+            Personalidad alegre y positiva<br>
+            Disponibilidad inmediata
+          </p>
+          <p>Compatibles: Entre semana media jornada.</p>
+          <p>Fines de semana jornada completa</p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Idiomas</h2>
+          <div class="lang-row"><strong>Español:</strong><span>Nativo</span></div>
+          <div class="lang-row"><strong>Inglés:</strong><span>Avanzado</span></div>
+          <div class="lang-row"><strong>Valenciano:</strong><span>Nativo</span></div>
+          <div class="lang-row"><strong>Francés:</strong><span>Básico</span></div>
+        </section>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="hero">
+        <h1>Miguel Gavilá<br>Ibáñez</h1>
+      </header>
+
+      <div class="main-content">
+        <section class="block">
+          <h2 class="main-title">Experiencia</h2>
+
+          <div class="job">
+            <div>
+              <span class="accent">Técnico Informático,</span>
+              <span class="date-inline">24/06/2024 - Actual</span>
+            </div>
+            <div class="company">UPI CIUTAT DE LES CIENCIES S.L</div>
+            <ul>
+              <li>Mantenimiento de ordenadores, portátiles y otros dispositivos.</li>
+              <li>Atención a usuarios para solucionar incidencias técnicas.</li>
+              <li>Instalación de software y actualización de sistemas.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div>
+              <span class="accent">Socorrista,</span>
+              <span class="date-inline">1/06/2023 - 31/09/2023</span>
+            </div>
+            <div class="company">AQUAVAL S.L</div>
+          </div>
+
+          <div class="job">
+            <div>
+              <span class="accent">Camarero,</span>
+              <span class="date-inline">03/03/2023 - 30/04/2023</span>
+            </div>
+            <div class="company">FAMILIA MOIA, S.L</div>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2 class="main-title">Estudios</h2>
+          <div class="study-grid">
+            <div class="year">2016 - 2020</div>
+            <div class="study-text">
+              Educación Secundaria Obligatoria. Colegio Pio XII, Valencia.
+            </div>
+
+            <div class="year">2021 - 2022</div>
+            <div class="study-text">Título de Manipulación de Alimentos.</div>
+
+            <div class="year">2022</div>
+            <div class="study-text">
+              Título de Socorrista, Centro de formación universitario y profesional Carpe Diem.
+            </div>
+
+            <div class="year">2022 - 2024</div>
+            <div class="study-text">
+              Grado Medio en Sistemas Microinformáticos y Redes, Progresa.
+            </div>
+
+            <div class="year">Actualidad</div>
+            <div class="study-text">
+              Grado Superior en Desarrollo de Aplicaciones Web, CEAC FP Valencia.
+            </div>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2 class="main-title">Habilidades</h2>
+          <p class="skill-text">
+            Técnicas: Excel, Word, PowerPoint, Outlook, Photoshop y Microsoft Office.
+          </p>
+          <p class="skill-text">
+            Personales: Proactividad, trabajo en equipo, responsabilidad, puntualidad y alegría.
+          </p>
+        </section>
+      </div>
+    </main>
+  </article>
+
+  <div class="print-note">Diseñado para verse bien en pantalla y al imprimir en PDF</div>
 </body>
 </html>
