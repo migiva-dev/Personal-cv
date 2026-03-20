@@ -1,6 +1,6 @@
 # CV – Miguel Gavila Ibañez
 
-Curriculum interactivo desarrollado con HTML, CSS y JavaScript.
+Curriculum interactivo desarrollado con HTML, CSS.
 
 ## Características
 
