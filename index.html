@@ -4,107 +4,215 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CV Miguel Gavilá Ibáñez</title>
-
-  <!-- CONEXIÓN AL CSS -->
-  <link rel="stylesheet" href="/css/sytles.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
-
 <body>
 
-<button class="download-btn" onclick="window.print()">Descargar PDF</button>
+  <button class="download-btn" id="downloadBtn" onclick="descargarPDF()">Descargar PDF</button>
 
-<article class="cv">
+  <main class="page">
+    <article class="cv" id="cv">
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="photo-wrap">
+          <img src="img_cv.png" alt="Foto de Miguel Gavilá Ibáñez">
+        </div>
 
-    <div class="photo-area">
-      <div class="photo-frame">
-        <img src="img_cv.png" alt="Foto Miguel">
-      </div>
-    </div>
+        <div class="sidebar-content">
+          <section class="side-section">
+            <h2 class="side-title">Contacto</h2>
 
-    <div class="sidebar-content">
+            <div class="contact-item">
+              <span class="contact-icon">@</span>
+              <span>miguelgavilaibanez@gmail.com</span>
+            </div>
 
-      <section class="section">
-        <h2 class="section-title">Contacto</h2>
-        <div class="contact-item">📧 miguelgavilaibanez@gmail.com</div>
-        <div class="contact-item">📞 +34 648 437 773</div>
-        <div class="contact-item">📍 Rafelbuñol</div>
+            <div class="contact-item">
+              <span class="contact-icon">☎</span>
+              <span>(+34) 648 437 773</span>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-icon">⌂</span>
+              <span>Av. Magdalena, 101 22<br>Rafelbuñol</span>
+            </div>
+          </section>
+
+          <section class="side-section">
+            <h2 class="side-title">Perfil</h2>
+            <p class="side-text">
+              Me considero una persona constante, responsable y comprometida con
+              los objetivos que asumo. Destaco por mi actitud positiva, mi
+              facilidad para trabajar en equipo y mi disposición para seguir
+              aprendiendo.
+            </p>
+            <p class="side-text">
+              Disponibilidad inmediata.<br>
+              Entre semana: media jornada.<br>
+              Fines de semana: jornada completa.
+            </p>
+          </section>
+
+          <section class="side-section">
+            <h2 class="side-title">Idiomas</h2>
+
+            <div class="lang-row">
+              <span>Español</span>
+              <strong>Nativo</strong>
+            </div>
+
+            <div class="lang-row">
+              <span>Valenciano</span>
+              <strong>Nativo</strong>
+            </div>
+
+            <div class="lang-row">
+              <span>Inglés</span>
+              <strong>Avanzado</strong>
+            </div>
+
+            <div class="lang-row">
+              <span>Francés</span>
+              <strong>Básico</strong>
+            </div>
+          </section>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <section class="content">
+        <header class="hero">
+          <h1>Miguel<br>Gavilá<br>Ibáñez</h1>
+          <p class="hero-subtitle">Técnico informático · Desarrollo web</p>
+        </header>
+
+        <div class="content-inner">
+          <section class="main-section">
+            <h2 class="main-title">Experiencia</h2>
+
+            <article class="item">
+              <div class="item-top">
+                <h3>Técnico Informático</h3>
+                <span>24/06/2024 - Actualidad</span>
+              </div>
+              <p class="item-subtitle">UPI Ciutat de les Ciències S.L.</p>
+              <ul>
+                <li>Mantenimiento de ordenadores, portátiles y otros dispositivos.</li>
+                <li>Atención a usuarios para resolver incidencias técnicas.</li>
+                <li>Instalación de software y actualización de sistemas.</li>
+              </ul>
+            </article>
+
+            <article class="item">
+              <div class="item-top">
+                <h3>Socorrista</h3>
+                <span>01/06/2023 - 30/09/2023</span>
+              </div>
+              <p class="item-subtitle">Aquaval S.L.</p>
+            </article>
+
+            <article class="item">
+              <div class="item-top">
+                <h3>Camarero</h3>
+                <span>03/03/2023 - 30/04/2023</span>
+              </div>
+              <p class="item-subtitle">Familia Moia, S.L.</p>
+            </article>
+          </section>
+
+          <section class="main-section">
+            <h2 class="main-title">Estudios</h2>
+
+            <div class="study-row">
+              <div class="study-year">2016 - 2020</div>
+              <div class="study-info">Educación Secundaria Obligatoria. Colegio Pío XII, Valencia.</div>
+            </div>
+
+            <div class="study-row">
+              <div class="study-year">2021 - 2022</div>
+              <div class="study-info">Título de Manipulación de Alimentos.</div>
+            </div>
+
+            <div class="study-row">
+              <div class="study-year">2022</div>
+              <div class="study-info">Título de Socorrista. Centro de formación universitario y profesional Carpe Diem.</div>
+            </div>
+
+            <div class="study-row">
+              <div class="study-year">2022 - 2024</div>
+              <div class="study-info">Grado Medio en Sistemas Microinformáticos y Redes, Progresa.</div>
+            </div>
+
+            <div class="study-row">
+              <div class="study-year">Actualidad</div>
+              <div class="study-info">Grado Superior en Desarrollo de Aplicaciones Web, CEAC FP Valencia.</div>
+            </div>
+          </section>
+
+          <section class="main-section">
+            <h2 class="main-title">Habilidades</h2>
+
+            <div class="skills-block">
+              <h3>Técnicas</h3>
+              <p>Excel, Word, PowerPoint, Outlook, Photoshop y Microsoft Office.</p>
+            </div>
+
+            <div class="skills-block">
+              <h3>Personales</h3>
+              <p>Proactividad, trabajo en equipo, responsabilidad, puntualidad y actitud positiva.</p>
+            </div>
+          </section>
+        </div>
       </section>
-
-      <section class="section">
-        <h2 class="section-title">Perfil</h2>
-        <p>
-          Persona responsable, constante y con actitud positiva.
-          Buen trabajo en equipo y motivación por seguir aprendiendo.
-        </p>
-      </section>
-
-      <section class="section">
-        <h2 class="section-title">Idiomas</h2>
-        <p>Español — Nativo</p>
-        <p>Valenciano — Nativo</p>
-        <p>Inglés — Avanzado</p>
-        <p>Francés — Básico</p>
-      </section>
-
-    </div>
-  </aside>
-
-  <!-- MAIN -->
-  <main class="main">
-
-    <div class="hero">
-      <h1>Miguel Gavilá Ibáñez</h1>
-      <div class="subtitle">Técnico informático · Desarrollo web</div>
-    </div>
-
-    <section>
-      <h2 class="main-title">Experiencia</h2>
-
-      <div class="job">
-        <div class="role">Técnico Informático</div>
-        <div class="date">2024 - Actualidad</div>
-        <ul>
-          <li>Mantenimiento de equipos</li>
-          <li>Soporte técnico</li>
-          <li>Instalación de software</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="role">Socorrista</div>
-        <div class="date">2023</div>
-      </div>
-
-      <div class="job">
-        <div class="role">Camarero</div>
-        <div class="date">2023</div>
-      </div>
-
-    </section>
-
-    <section>
-      <h2 class="main-title">Estudios</h2>
-
-      <div class="study">ESO — Valencia</div>
-      <div class="study">Grado Medio SMR</div>
-      <div class="study">Grado Superior DAW (actual)</div>
-
-    </section>
-
-    <section>
-      <h2 class="main-title">Habilidades</h2>
-      <p>Excel, Word, PowerPoint, Photoshop</p>
-      <p>Trabajo en equipo, responsabilidad, puntualidad</p>
-    </section>
-
+    </article>
   </main>
 
-</article>
+  <script>
+    async function descargarPDF() {
+      const btn = document.getElementById('downloadBtn');
+      const cv = document.getElementById('cv');
 
-<div class="print-note">Preparado para imprimir en A4</div>
+      btn.textContent = 'Generando...';
+      btn.disabled = true;
+
+      try {
+        const canvas = await html2canvas(cv, {
+          scale: 3,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: null,
+          logging: false,
+          width: cv.offsetWidth,
+          height: cv.offsetHeight
+        });
+
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF({
+          orientation: 'portrait',
+          unit: 'mm',
+          format: 'a4'
+        });
+
+        const pageWidth = 210;
+        const pageHeight = 297;
+
+        const imgData = canvas.toDataURL('image/jpeg', 1.0);
+
+        pdf.addImage(imgData, 'JPEG', 0, 0, pageWidth, pageHeight);
+        pdf.save('CV_Miguel_Gavila_Ibanez.pdf');
+
+      } catch (err) {
+        console.error('Error al generar PDF:', err);
+        alert('Error al generar el PDF. Inténtalo de nuevo.');
+      } finally {
+        btn.textContent = 'Descargar PDF';
+        btn.disabled = false;
+      }
+    }
+  </script>
 
 </body>
 </html>
