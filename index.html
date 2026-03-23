@@ -6,13 +6,16 @@
   <title>CV Miguel Gavilá Ibáñez</title>
   <style>
     :root{
-      --sage:#9fb6b4;
-      --sage-soft:#bdd0ce;
-      --ink:#121416;
-      --paper:#f7f7f5;
-      --text:#262a2c;
-      --muted:#6f8f8d;
-      --white:#ffffff;
+      --bg:#e9eeed;
+      --paper:#ffffff;
+      --sidebar:#1e2a2f;
+      --sidebar-soft:#2a3940;
+      --accent:#88a7a3;
+      --accent-soft:#dbe5e3;
+      --title:#173038;
+      --text:#2a2f31;
+      --muted:#687477;
+      --line:#d9e1df;
     }
 
     *{
@@ -21,9 +24,14 @@
       padding:0;
     }
 
+    html, body{
+      width:100%;
+      min-height:100%;
+    }
+
     body{
-      background:#dde4e3;
-      font-family: Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      font-family: "Arial", "Helvetica", sans-serif;
       color:var(--text);
       display:flex;
       justify-content:center;
@@ -32,118 +40,119 @@
     }
 
     .cv{
-      width:100%;
-      max-width:1024px;
-      min-height:1448px;
+      width:210mm;
+      min-height:297mm;
       background:var(--paper);
       display:grid;
-      grid-template-columns:36% 64%;
-      box-shadow:0 30px 60px rgba(0,0,0,.18);
+      grid-template-columns: 34% 66%;
+      box-shadow:0 20px 45px rgba(0,0,0,.12);
       overflow:hidden;
     }
 
     .sidebar{
-      background:var(--ink);
-      position:relative;
-      padding-bottom:44px;
+      background:linear-gradient(180deg, var(--sidebar) 0%, #162126 100%);
+      color:#f3f5f4;
+      display:flex;
+      flex-direction:column;
     }
 
     .photo-wrap{
-      height:372px;
-      background:#7f9f9e;
+      width:100%;
+      height:72mm;
       overflow:hidden;
-      position:relative;
+      background:var(--sidebar-soft);
     }
 
     .photo-wrap img{
       width:100%;
       height:100%;
       object-fit:cover;
-      object-position:center 18%;
+      object-position:center 20%;
       display:block;
-      filter:saturate(1.02) contrast(1.02);
     }
 
     .sidebar-content{
-      padding:58px 52px 30px;
-      color:#f2f2f0;
+      padding:12mm 9mm 10mm;
+      display:flex;
+      flex-direction:column;
+      gap:10mm;
     }
 
     .section{
-      margin-bottom:48px;
-    }
-
-    .section-title,
-    .main-title{
-      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-      letter-spacing:.5px;
-      line-height:.95;
-      text-transform:uppercase;
-      display:inline-block;
-      position:relative;
-      z-index:1;
+      page-break-inside:avoid;
+      break-inside:avoid;
     }
 
     .section-title{
-      font-size:42px;
-      color:#f4f4f4;
-      margin:0 0 22px;
+      font-size:7mm;
+      font-weight:800;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      color:#ffffff;
+      margin-bottom:5mm;
+      position:relative;
+      padding-bottom:2mm;
     }
 
-    .main-title{
-      font-size:44px;
-      color:#22373b;
-      margin:0 0 26px;
-    }
-
-    .section-title::after,
-    .main-title::after{
+    .section-title::after{
       content:"";
       position:absolute;
-      left:-8px;
-      right:-10px;
-      bottom:4px;
-      height:18px;
-      background:var(--sage-soft);
-      z-index:-1;
-      opacity:.95;
+      left:0;
+      bottom:0;
+      width:18mm;
+      height:1.4mm;
+      background:var(--accent);
+      border-radius:999px;
+    }
+
+    .contact-list{
+      display:flex;
+      flex-direction:column;
+      gap:4mm;
     }
 
     .contact-item{
       display:flex;
-      gap:14px;
+      gap:3mm;
       align-items:flex-start;
-      margin:0 0 18px;
-      font-size:18px;
-      line-height:1.35;
+      font-size:3.65mm;
+      line-height:1.45;
     }
 
     .icon{
-      width:34px;
-      min-width:34px;
-      height:34px;
+      width:6.5mm;
+      min-width:6.5mm;
+      height:6.5mm;
       border-radius:50%;
-      border:2px solid rgba(255,255,255,.9);
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.18);
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:16px;
-      margin-top:2px;
+      font-size:3.2mm;
+      margin-top:.5mm;
     }
 
     .sidebar p{
-      margin:0 0 18px;
-      font-size:19px;
-      line-height:1.28;
+      font-size:3.6mm;
+      line-height:1.55;
+      color:#eef2f1;
+    }
+
+    .lang-list{
+      display:flex;
+      flex-direction:column;
+      gap:3.2mm;
     }
 
     .lang-row{
       display:flex;
       justify-content:space-between;
-      gap:12px;
-      margin:0 0 18px;
-      font-size:20px;
-      line-height:1.2;
+      gap:4mm;
+      font-size:3.7mm;
+      line-height:1.35;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      padding-bottom:1.5mm;
     }
 
     .lang-row strong{
@@ -151,129 +160,209 @@
     }
 
     .main{
+      display:flex;
+      flex-direction:column;
       background:var(--paper);
     }
 
     .hero{
-      background:var(--sage);
-      min-height:242px;
-      padding:34px 42px;
-      display:flex;
-      align-items:flex-start;
+      padding:14mm 12mm 10mm;
+      background:
+        linear-gradient(135deg, var(--accent-soft) 0%, #edf3f1 100%);
+      border-bottom:1px solid var(--line);
     }
 
     .hero h1{
-      margin:0;
-      color:#f6f7f5;
-      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-      font-size:86px;
-      letter-spacing:2px;
-      line-height:.92;
+      font-size:13.5mm;
+      line-height:.95;
       text-transform:uppercase;
+      letter-spacing:1px;
+      color:var(--title);
+      font-weight:800;
+      margin-bottom:4mm;
+    }
+
+    .hero .subtitle{
+      font-size:4.1mm;
+      color:var(--muted);
       font-weight:700;
+      letter-spacing:.6px;
+      text-transform:uppercase;
     }
 
     .main-content{
-      padding:36px 40px 44px;
+      padding:10mm 12mm 10mm;
+      display:flex;
+      flex-direction:column;
+      gap:8mm;
     }
 
     .block{
-      margin-bottom:52px;
+      page-break-inside:avoid;
+      break-inside:avoid;
+    }
+
+    .main-title{
+      font-size:7mm;
+      font-weight:800;
+      letter-spacing:.7px;
+      text-transform:uppercase;
+      color:var(--title);
+      margin-bottom:5mm;
+      position:relative;
+      padding-bottom:2mm;
+    }
+
+    .main-title::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:22mm;
+      height:1.5mm;
+      background:var(--accent);
+      border-radius:999px;
     }
 
     .job{
-      margin-bottom:32px;
+      margin-bottom:6mm;
+      page-break-inside:avoid;
+      break-inside:avoid;
     }
 
     .job:last-child{
       margin-bottom:0;
     }
 
-    .accent{
-      color:var(--muted);
-      font-size:26px;
-      font-weight:300;
+    .job-head{
+      display:flex;
+      justify-content:space-between;
+      gap:4mm;
+      align-items:flex-start;
+      margin-bottom:1.5mm;
+      flex-wrap:wrap;
+    }
+
+    .role{
+      font-size:4.3mm;
+      font-weight:800;
+      color:var(--title);
     }
 
     .date-inline{
-      color:#222;
-      font-size:22px;
-      margin-left:6px;
+      font-size:3.5mm;
+      color:var(--muted);
+      font-weight:700;
+      white-space:nowrap;
     }
 
     .company{
-      font-size:22px;
-      margin:10px 0 10px;
-      color:#1f2325;
+      font-size:3.85mm;
+      color:#40484b;
+      font-weight:700;
+      margin-bottom:2mm;
     }
 
     ul{
-      margin:6px 0 0 18px;
-      padding:0 0 0 14px;
+      margin-left:5mm;
+      padding-left:2mm;
     }
 
     li{
-      font-size:19px;
-      line-height:1.42;
-      margin-bottom:6px;
+      font-size:3.55mm;
+      line-height:1.5;
+      margin-bottom:1.3mm;
+      color:var(--text);
     }
 
     .study-grid{
       display:grid;
-      grid-template-columns:120px 1fr;
-      gap:20px 22px;
+      grid-template-columns:30mm 1fr;
+      gap:3mm 5mm;
       align-items:start;
     }
 
     .year{
+      font-size:3.5mm;
       color:var(--muted);
-      font-size:20px;
+      font-weight:700;
       text-align:right;
-      line-height:1.2;
-      padding-top:2px;
+      padding-top:.3mm;
     }
 
     .study-text{
-      font-size:19px;
-      line-height:1.32;
+      font-size:3.55mm;
+      line-height:1.5;
+      color:var(--text);
+      padding-bottom:2.5mm;
+    }
+
+    .skills-group{
+      margin-bottom:4mm;
+    }
+
+    .skills-group:last-child{
+      margin-bottom:0;
+    }
+
+    .skills-group strong{
+      display:block;
+      font-size:3.8mm;
+      color:var(--title);
+      margin-bottom:1.5mm;
     }
 
     .skill-text{
-      font-size:19px;
-      line-height:1.38;
-      margin:0 0 26px;
+      font-size:3.55mm;
+      line-height:1.55;
+      color:var(--text);
     }
 
     .print-note{
       position:fixed;
-      bottom:10px;
-      right:12px;
+      right:14px;
+      bottom:14px;
       font-size:12px;
-      color:#5d6d6d;
-      background:rgba(255,255,255,.7);
-      padding:4px 8px;
+      color:#506062;
+      background:rgba(255,255,255,.85);
+      padding:6px 10px;
       border-radius:999px;
-      backdrop-filter:blur(4px);
+      box-shadow:0 8px 20px rgba(0,0,0,.08);
+    }
+
+    @page{
+      size:A4;
+      margin:0;
     }
 
     @media print{
+      html, body{
+        width:210mm;
+        height:297mm;
+      }
+
       body{
-        background:white;
+        background:#fff;
         padding:0;
       }
 
       .cv{
+        width:210mm;
+        min-height:297mm;
+        height:297mm;
         box-shadow:none;
-        max-width:none;
+        margin:0;
       }
 
       .print-note{
         display:none;
       }
 
-      @page{
-        size:A4;
-        margin:0;
+      .section,
+      .block,
+      .job{
+        page-break-inside:avoid;
+        break-inside:avoid;
       }
     }
 
@@ -283,15 +372,17 @@
       }
 
       .cv{
+        width:100%;
+        min-height:auto;
         grid-template-columns:1fr;
       }
 
-      .hero h1{
-        font-size:64px;
+      .photo-wrap{
+        height:320px;
       }
 
-      .photo-wrap{
-        height:460px;
+      .hero h1{
+        font-size:52px;
       }
 
       .study-grid{
@@ -314,47 +405,55 @@
       <div class="sidebar-content">
         <section class="section">
           <h2 class="section-title">Contacto</h2>
-          <div class="contact-item">
-            <span class="icon">@</span>
-            <span>miguelgavilaibanez@gmail.com</span>
-          </div>
-          <div class="contact-item">
-            <span class="icon">☎</span>
-            <span>(+34) 648 437 773</span>
-          </div>
-          <div class="contact-item">
-            <span class="icon">⌘</span>
-            <span>Av/Magdalena, 101 22<br>Rafelbuñol</span>
+          <div class="contact-list">
+            <div class="contact-item">
+              <span class="icon">@</span>
+              <span>miguelgavilaibanez@gmail.com</span>
+            </div>
+            <div class="contact-item">
+              <span class="icon">☎</span>
+              <span>(+34) 648 437 773</span>
+            </div>
+            <div class="contact-item">
+              <span class="icon">⌂</span>
+              <span>Av. Magdalena, 101 22<br>Rafelbuñol</span>
+            </div>
           </div>
         </section>
 
         <section class="section">
-          <h2 class="section-title">Sobre mí</h2>
+          <h2 class="section-title">Perfil</h2>
           <p>
-            Me considero una persona con una gran constancia para lograr mis
-            objetivos, así como un gran sentido de la responsabilidad.
+            Me considero una persona constante, responsable y comprometida con
+            los objetivos que asumo. Destaco por mi actitud positiva, mi
+            facilidad para trabajar en equipo y mi disposición para seguir
+            aprendiendo.
           </p>
           <p>
-            Personalidad alegre y positiva<br>
-            Disponibilidad inmediata
+            Disponibilidad inmediata.<br>
+            Entre semana: media jornada.<br>
+            Fines de semana: jornada completa.
           </p>
-          <p>Compatibles: Entre semana media jornada.</p>
-          <p>Fines de semana jornada completa</p>
         </section>
 
         <section class="section">
           <h2 class="section-title">Idiomas</h2>
-          <div class="lang-row"><strong>Español:</strong><span>Nativo</span></div>
-          <div class="lang-row"><strong>Inglés:</strong><span>Avanzado</span></div>
-          <div class="lang-row"><strong>Valenciano:</strong><span>Nativo</span></div>
-          <div class="lang-row"><strong>Francés:</strong><span>Básico</span></div>
+          <div class="lang-list">
+            <div class="lang-row"><strong>Español</strong><span>Nativo</span></div>
+            <div class="lang-row"><strong>Valenciano</strong><span>Nativo</span></div>
+            <div class="lang-row"><strong>Inglés</strong><span>Avanzado</span></div>
+            <div class="lang-row"><strong>Francés</strong><span>Básico</span></div>
+          </div>
         </section>
       </div>
     </aside>
 
     <main class="main">
       <header class="hero">
-        <h1>Miguel Gavilá<br>Ibáñez</h1>
+        <div>
+          <h1>Miguel Gavilá<br>Ibáñez</h1>
+          <div class="subtitle">Técnico informático · Desarrollo web</div>
+        </div>
       </header>
 
       <div class="main-content">
@@ -362,32 +461,32 @@
           <h2 class="main-title">Experiencia</h2>
 
           <div class="job">
-            <div>
-              <span class="accent">Técnico Informático,</span>
-              <span class="date-inline">24/06/2024 - Actual</span>
+            <div class="job-head">
+              <div class="role">Técnico Informático</div>
+              <div class="date-inline">24/06/2024 - Actualidad</div>
             </div>
-            <div class="company">UPI CIUTAT DE LES CIENCIES S.L</div>
+            <div class="company">UPI Ciutat de les Ciències S.L.</div>
             <ul>
               <li>Mantenimiento de ordenadores, portátiles y otros dispositivos.</li>
-              <li>Atención a usuarios para solucionar incidencias técnicas.</li>
+              <li>Atención a usuarios para resolver incidencias técnicas.</li>
               <li>Instalación de software y actualización de sistemas.</li>
             </ul>
           </div>
 
           <div class="job">
-            <div>
-              <span class="accent">Socorrista,</span>
-              <span class="date-inline">1/06/2023 - 31/09/2023</span>
+            <div class="job-head">
+              <div class="role">Socorrista</div>
+              <div class="date-inline">01/06/2023 - 30/09/2023</div>
             </div>
-            <div class="company">AQUAVAL S.L</div>
+            <div class="company">Aquaval S.L.</div>
           </div>
 
           <div class="job">
-            <div>
-              <span class="accent">Camarero,</span>
-              <span class="date-inline">03/03/2023 - 30/04/2023</span>
+            <div class="job-head">
+              <div class="role">Camarero</div>
+              <div class="date-inline">03/03/2023 - 30/04/2023</div>
             </div>
-            <div class="company">FAMILIA MOIA, S.L</div>
+            <div class="company">Familia Moia, S.L.</div>
           </div>
         </section>
 
@@ -396,15 +495,17 @@
           <div class="study-grid">
             <div class="year">2016 - 2020</div>
             <div class="study-text">
-              Educación Secundaria Obligatoria. Colegio Pio XII, Valencia.
+              Educación Secundaria Obligatoria. Colegio Pío XII, Valencia.
             </div>
 
             <div class="year">2021 - 2022</div>
-            <div class="study-text">Título de Manipulación de Alimentos.</div>
+            <div class="study-text">
+              Título de Manipulación de Alimentos.
+            </div>
 
             <div class="year">2022</div>
             <div class="study-text">
-              Título de Socorrista, Centro de formación universitario y profesional Carpe Diem.
+              Título de Socorrista. Centro de formación universitario y profesional Carpe Diem.
             </div>
 
             <div class="year">2022 - 2024</div>
@@ -421,17 +522,25 @@
 
         <section class="block">
           <h2 class="main-title">Habilidades</h2>
-          <p class="skill-text">
-            Técnicas: Excel, Word, PowerPoint, Outlook, Photoshop y Microsoft Office.
-          </p>
-          <p class="skill-text">
-            Personales: Proactividad, trabajo en equipo, responsabilidad, puntualidad y alegría.
-          </p>
+
+          <div class="skills-group">
+            <strong>Técnicas</strong>
+            <p class="skill-text">
+              Excel, Word, PowerPoint, Outlook, Photoshop y Microsoft Office.
+            </p>
+          </div>
+
+          <div class="skills-group">
+            <strong>Personales</strong>
+            <p class="skill-text">
+              Proactividad, trabajo en equipo, responsabilidad, puntualidad y actitud positiva.
+            </p>
+          </div>
         </section>
       </div>
     </main>
   </article>
 
-  <div class="print-note">Diseñado para verse bien en pantalla y al imprimir en PDF</div>
+  <div class="print-note">Preparado para imprimirse en una sola hoja A4</div>
 </body>
 </html>
